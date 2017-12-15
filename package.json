@@ -2,15 +2,9 @@
   "name": "henatyoko-mock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "aiueo": "echo aiueo",
-    "webpack": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",

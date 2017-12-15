@@ -1,14 +1,15 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = [{
     context: path.join(__dirname, 'scss'),
     entry: {
-        style: './style.scss'
+        style: './main.scss'
     },
     output: {
-        path: __dirname,
-        filename: '[name].css'
+        path: path.join(__dirname, 'theme-dir'),
+        filename: 'style.css'
     },
     module: {
         loaders: [{
@@ -32,6 +33,10 @@ module.exports = [{
     },
     devtool: 'source-map',
     plugins: [
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('style.css'),
+        new CopyWebpackPlugin([{
+            from: path.join(__dirname, 'theme-dir'),
+            to: '/xampp/htdocs/wordpress/wp-content/themes/my-theme'
+        }])
     ]
 }];
