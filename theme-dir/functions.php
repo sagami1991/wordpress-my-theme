@@ -119,9 +119,6 @@ add_action( 'widgets_init', 'pugiemonn_widgets_init' );
 function pugiemonn_scripts() {
 	wp_enqueue_style( 'pugiemonn-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'pugiemonn-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'pugiemonn-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -156,3 +153,43 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// コメントテンプレート
+function mytheme_comment($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment; ?>
+	<li id="li-comment-<?php comment_ID(); ?>" class="comment">
+		<div class="comment-meta commentmetadata">
+		<div class="comment-author vcard">
+			<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+		</div>
+		<?php if ($comment->comment_approved == '0') : ?>
+			<em><?php _e('Your comment is awaiting moderation.') ?></em>
+			<br />
+		<?php endif; ?>
+		
+		<?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?>
+		<?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
+		<div class="comment-content">
+			<?php comment_text() ?>
+		</div>
+ 
+		<div class="reply">
+			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+		</div>
+	</li>
+<?php
+}
+
+function get_post_source_badge($postId) {
+	$sourceType = get_post_meta($postId , 'source_type' ,true);
+	if ( $sourceType !== '' ) : ?>
+		<div class="badge-container">
+			<div class="badge-label">
+				情報元
+			</div>
+			<div class="badge-value">
+				<?php echo $sourceType ?>
+			</div>
+		</div>
+	<?php endif; 
+}
+?>

@@ -1,0 +1,129 @@
+.post {
+	background-color: white;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	.post-thumbnail {
+		overflow: hidden;
+		text-align: center;
+	}
+	.entry-meta {
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+		.article-post-date, .article-update-date {
+			.icon-common {
+				margin-right: 2px;
+			}
+			display: flex;
+			align-items: center;
+			color: #707070;
+			margin-right: 8px;
+		}
+		.badge-container {
+			margin-right: 8px;
+		}
+		.article-views {
+			margin-right: 8px;
+			.icon-eye {
+				margin-right: 4px;
+			}
+			color: #494949;
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+.page-multi {
+	@media screen and (max-width: 800px) {
+	}
+	@media screen and (min-width: 801px) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	margin-bottom: 30px;
+	article {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 12px;
+		padding-bottom: 8px;
+		@media screen and (max-width: 800px) {
+			width: calc(100% - 12px);
+		}
+		@media screen and (min-width: 801px) {
+			width: calc(50% - 6px);
+		}
+		.post-thumbnail {
+			display: block;
+			background-color: #eaeaea;
+			position: relative;
+			@media screen and (max-width: 800px) {
+				height: 180px;
+			}
+			@media screen and (min-width: 801px) {
+				height: 220px;
+			}
+			.wp-post-image {
+				height: 100%;
+				width: auto;
+				max-width: 1000%;
+				object-fit: cover;
+			}
+			&.post-thumbnail-no-image {
+				background-image: url("./resources/no-image.png");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+			&:hover {
+				&:before, &:after {
+					content: "";
+					position: absolute;
+					top:0;
+					bottom: 0;
+					right: 0;
+					left: 0;
+				}
+				&:before {
+					background-color: rgba(0, 0, 0, 0.4);
+				}
+				&:after {
+					background-image: url("./resources/site-logo-mini.svg");
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 60%;
+				}
+			}
+		}
+		.entry-header {
+			margin: auto 10px 0 10px;
+			.entry-title {
+				margin-bottom: 6px;
+				max-height: 3em;
+				overflow: hidden;
+				max-width: 100%;
+				a {
+					color: #2c2d2f;
+					font-weight: 600;
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}
+
+.page-single {
+	.post {
+		.post-thumbnail {
+			text-align: center;
+			max-height: 400px;
+			.wp-post-image {
+				max-height: 100%;
+				max-width: 100%;
+				height: auto;
+				width: auto;
+			}
+		}
+	}
+}

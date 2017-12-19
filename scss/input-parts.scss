@@ -1,0 +1,93 @@
+button,
+input[type=submit] {
+	background-color: $baseYellow;
+	border: 1px solid #d0d0d0;
+	color: #333;
+	&:hover {
+		background-color: $deepYellow;
+	}
+}
+
+input,
+button,
+textarea {
+	border: 1px solid #d0d0d0;
+	&:focus {
+		outline: 0;
+		border-color: #5a9acc;
+	}
+}
+
+input[type=text],input[type=search], {
+	padding-left: 2px;
+}
+
+/** 検索フォーム */
+.search-form {
+	display: flex;
+	.search-field {
+		width: 140px;
+	}
+	.search-field,
+	.search-submit {
+		height: 26px;
+	}
+	.search-submit {
+		border-left: none;
+		position: relative;
+		width: 32px;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url("./resources/magnify.svg");
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+/** ページャー */
+.pager-part {
+	display: flex;
+	justify-content: center;
+	.page-numbers {
+		border-style: solid;
+		border-color: #d0d0d0;
+		border-width: 1px 1px 1px 0;
+		background-color: white;
+		padding: 6px 12px;
+		color: rgb(39, 39, 39);
+		margin: 0;
+		display: inline-block;
+		&.current {
+			background-color: $baseYellow;
+		}
+		&:not(.current):hover {
+			background-color: $baseYellow;
+			transition: 0.2s;
+		}
+		&:first-child {
+			border-left-width: 1px;
+		}
+	}
+}
+
+.badge-container {
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	border: 1px solid #d0d0d0;
+	border-radius: 2px;
+	.badge-label, .badge-value {
+		padding: 1px 4px;
+	}
+	.badge-label {
+		background-color: $baseYellow;
+		color: rgb(43, 43, 43);
+		border-right: 1px solid #d0d0d0;
+	}
+}

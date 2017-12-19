@@ -29,4 +29,23 @@ function pugiemonn_pingback_header() {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
+
+function get_pager_part() {
+	global $wp_query;
+
+	$big = 999999999; // need an unlikely integer
+	$translated = __( 'Page', 'mytextdomain' ); // Supply translatable string
+
+	echo '<div class="pager-part">';
+	echo paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+			'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
+	) );
+	echo '</div>';
+	
+}
+
 add_action( 'wp_head', 'pugiemonn_pingback_header' );

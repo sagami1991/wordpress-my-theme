@@ -1,32 +1,15 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package pugiemonn
- */
-
-?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pugiemonn' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'pugiemonn' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'pugiemonn' ), 'pugiemonn', '<a href="http://underscores.me/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+</div>
+<footer id="colophon" class="site-footer">
+	<div class="footer-inline-container">
+		<div class="footer-logo">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAASCAYAAACjHMeiAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QwRAwUun374rwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAADaklEQVRo3u2aSWgUQRSGv0zGLbgkBDWgwWiMihoVJDcPgiIGRDyIXryIN3EBDwouNz15ULyIGBD0ouJFBSOCoCKCmIkbQXEJ5KRZFJOomGSS8TA10Dbd9XqprmnRH4oZXvWrn+76+71X1VUBTALmEh8FoBfIO2zVqvnhJ9AXg3MqUBdh/DlAlcZvCPjqYV8K7Nf43QLuGXiWSfDMBJYD79VcLQHeAIOqvx44ovF/BFyPc1PLFLGJ9gM4CWTU2MeF62/EnJD1EcdvF/xO+PjtFfy2YQZJ8JSe1XblXwA2Ovp3CJyH4txQFrOoAo4BPcBF0gspgvc6osArh71G8DsPnBWuGQe6gTbgmmUeHZqF/qPAgQDjTCjey8AVJVLjQiuh9S8X2mf1mwEWhBi3LuB1i1Q06QUeWOKRsEror1UtCBYCG4AB4E5JaF+AUyEnqgXYpOmfnGKRZVSNFkRoSaNVCc0GT3tMoUXBZqfQ+lUtFQb7BKGlGTUBInkpAuSBh+r/dGCtxmcA6HLZGoRIVbDMo1soNAiLqmce9kZgvpBGE6nRwmJNgFrDjR7gTAzOIGmnJLTvqogG2ALc1vhcAg67bG3AHo3PR4s8OZWJupXwWoB3qn+l8DzuA1s97FeBnQHur+xCawQOhvR5GlNoUn02CPzyeSl0yHnYVkfwSYpnGOhw2DpCLARyPnaJt9NZr/xrCLoQiCuarBApxjxSoE2eMPWZl9CmUdyL06Xrl/+FJqfNMJFmSKUkJxZT3FD2w2tgpIw8cYW2QtDPW1USpCJ13gR2hfSZKENEm6HSvC5FTBhIm7Z4nKgQUucn1SKnzTQILe9UfYojWrOaEJN1U2cZeZyoB2YlWZ/9T53BI1qUyYwSaWzxEGIh0GmiZs1S3O3dHXKy1qVENKPod72/GYpopleCeVU7lYvHicdAk6a/zyfdSnXdC7fQZgOnDQtg3JLQnhD8c0xSEW2Y4okIJ2qBeRqfLp8tFFs87u2cwZDPsB79qZwP7jGTSp13U5o2K5A/P7kjWqXw9j73KNCjrOJs8ZhA6BRvejHQD5wDLqRUaNXI32HdEa2J4p6RybrJy8cWjw2h5bze8Az6Q4BBUaD4TazgEnJW2KoYtRzRpgjXjLjuISOIM8+fhz2heJi0UuMz5lFe2OIxgdC8vwH6kRsDYthGGQAAAABJRU5ErkJggg==">
+		</div>
+		<div class="copy-right">
+			© 2017 socket1016 All Right Reserved.
+		</div>
+	</div>
+</footer>
+</div>
 
 <?php wp_footer(); ?>
 

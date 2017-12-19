@@ -1,0 +1,57 @@
+.site-header,
+.site-footer {
+	display: flex;
+	justify-content: center;
+}
+
+.site-branding,
+.footer-inline-container {
+	width: calc(100% - 28px);
+	max-width: 1150px;
+}
+
+.site {
+	// body直下
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.site-content {
+		max-width: 1200px;
+		margin-top: 10px;
+		padding: 0 20px 0 20px;
+		padding-bottom: 30px;
+		.content-area {
+			position: relative;
+		}
+		.widget-area {
+		}
+		@media screen and (max-width: 800px) {
+			.content-area {}
+			.widget-area {
+				margin-top: 30px;
+			}
+		}
+		@media screen and (min-width: 801px) {
+			display: flex;
+			min-width: 800px;
+			.content-area {
+				width: calc(100% - 214px);
+				margin-right: 14px;
+			}
+			.widget-area {
+				width: 200px;
+			}
+		}
+	}
+}
+
+.site-footer {
+	color: rgb(70, 70, 70);
+	padding: 20px 40px 16px 40px;
+	width: 100%;
+	background-color: $baseYellow;
+	.copy-right {
+		margin-top: 4px;
+		font-size: 12px;
+	}
+}

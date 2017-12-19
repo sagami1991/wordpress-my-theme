@@ -15,58 +15,53 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() ) {
-	return;
+if (post_password_required()) {
+    return;
 }
 ?>
 
 <div id="comments" class="comments-area">
 
 	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
+    // You can start editing here -- including this comment!
+    if (have_comments()) : ?>
 		<h2 class="comments-title">
-			<?php
-			$comment_count = get_comments_number();
-			if ( 1 === $comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'pugiemonn' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'pugiemonn' ) ),
-					number_format_i18n( $comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+			コメント一覧
+		</h2>
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ul class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
+				wp_list_comments(array(
+					'callback' => mytheme_comment,
+					'style'      => 'ul',
 					'short_ping' => true,
-				) );
+				));
 			?>
-		</ol><!-- .comment-list -->
+		</ul>
 
 		<?php the_comments_navigation();
 
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pugiemonn' ); ?></p>
+        // If comments are closed and there are comments, let's leave a little note, shall we?
+        if (! comments_open()) : ?>
+			<p class="no-comments"><?php esc_html_e('Comments are closed.', 'pugiemonn'); ?></p>
 		<?php
-		endif;
+        endif;
 
-	endif; // Check for have_comments().
-
-	comment_form();
-	?>
+    endif; 
+    $args = array(
+        'fields' => apply_filters('comment_form_default_fields', array(
+			'author' => '<p id="inputtext">' . '<label for="author">' . __('Name')
+						. ($req ? '（必須）' : '') . '</label> ' .
+						'<br /><input id="author" name="author" type="text" value="'
+						. esc_attr($commenter['comment_author']) . '" size="30"' . $aria_req . ' /></p>',
+			'email'  => '',
+			'url'    => '',
+    	)),
+        'comment_notes_before' => null,
+    );
+    comment_form($args);
+    ?>
 
 </div><!-- #comments -->

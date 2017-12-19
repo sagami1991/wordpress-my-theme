@@ -1,8 +1,11 @@
-.site-branding {
-    padding: 4px 4px;
-    background-color: #ffda45;
-    .custom-logo {
-        height: 40px;
-        width: auto;
-    }
+.site-header {
+	width: 100%;
+	background-color: #ffda45;
+	.site-branding {
+		height: 60px;
+		align-items: center;
+		display: flex;
+		.custom-logo {
+		}
+	}
 }
