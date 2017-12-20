@@ -1,5 +1,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php pugiemonn_post_thumbnail(); ?>
+	<?php 
+		$license = get_post_meta($post->ID , 'image_license' ,true);
+		if ($license !== "") {
+			echo '<div class="thumbnail_license">'.$license.'</div>';
+		}
+	?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -20,11 +26,11 @@
 					<?php the_modified_date('Y年m月d日') ?>
 				</div>
 			<?php endif; ?>
-			<?php get_post_source_badge($post->ID); ?>
 			<div class="article-views">
 				<span class="icon-common icon-eye"></span>
 				<?php if(function_exists('the_views')) { the_views(); } ?>
 			</div>
+			<?php the_post_source_badge($post->ID); ?>
 		</div>
 		<?php endif; ?>
 	</header>

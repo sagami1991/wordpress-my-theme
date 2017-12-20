@@ -177,7 +177,7 @@ function mytheme_comment($comment, $args, $depth) {
 <?php
 }
 
-function get_post_source_badge($postId) {
+function the_post_source_badge($postId) {
 	$sourceType = get_post_meta($postId , 'source_type' ,true);
 	if ( $sourceType !== '' ) : ?>
 		<div class="badge-container">

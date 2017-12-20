@@ -17,7 +17,7 @@
 				<span class="icon-common icon-eye"></span>
 				<?php if(function_exists('the_views')) { the_views(); } ?>
 			</div>
-			<?php get_post_source_badge($post->ID); ?>
+			<?php the_post_source_badge($post->ID); ?>
 		</div>
 		<?php endif; ?>
 	</header>
