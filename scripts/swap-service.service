@@ -1,0 +1,9 @@
+[Unit]
+Type=simple
+Description=my_swap
+
+[Service]
+ExecStart=/usr/local/bin/swap.sh
+
+[Install]
+WantedBy=multi-user.target
