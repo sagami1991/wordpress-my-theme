@@ -1,33 +1,34 @@
 <meta name="twitter:card" content="summary">
 <?php
 if (is_single()) {
-	if (have_posts()) {
-		echo '<meta name="twitter:description" content="'.esc_attr(mb_substr(get_the_excerpt(), 0, 100)).'">';
+	while (have_posts()) {
+		the_post();
+		echo '<meta name="twitter:description" content="'.esc_attr(mb_substr(get_the_excerpt(), 0, 50)).'">';
 	}
 	echo template_str('<meta name="twitter:title" content="{title}">', [
-		"title" => esc_attr(the_title())
+		"title" => esc_attr(get_the_title())
 	]);
 	echo template_str('<meta name="twitter:url" content="{url}">', [
-		"title" => esc_attr(the_permalink())
+		"url" => esc_attr(get_the_permalink())
 	]);
+	if (has_post_thumbnail()) {
+		echo template_str('<meta name="twitter:image" content="{image}">', [
+			"image" => get_the_post_thumbnail_url()
+		]);
+	}
 } else {
-	echo template_str('<meta name="twitter:description" content="{description}">', [
-		"title" => esc_attr(bloginfo('description'))
-	]);
 	echo template_str('<meta name="twitter:title" content="{title}">', [
-		"title" => esc_attr(bloginfo('name'))
+		"title" => esc_attr(get_bloginfo('name'))
+	]);
+	echo template_str('<meta name="twitter:description" content="{description}">', [
+		"description" => esc_attr(get_bloginfo('description'))
 	]);
 	echo template_str('<meta name="twitter:url" content="{url}">', [
-		"title" => esc_attr(bloginfo('url'))
+		"url" => esc_attr(get_bloginfo('url'))
 	]);
-}
-
-if (is_single() && has_post_thumbnail()) {
-	$imageUrl = wp_get_attachment_image_src(get_post_thumbnail_id(), 'medium')[0];
-	echo '<meta name="twitter:image" content="'.esc_attr($imageUrl).'">\n';
-} else if (get_header_image()) {
-	$img_url = get_header_image();
-	echo '<meta name="twitter:image" content="'.esc_attr($imageUrl).'">\n';
+	echo template_str('<meta name="twitter:image" content="{image}">', [
+		"image" => get_header_image()
+	]);
 }
 
 ?>
