@@ -1,0 +1,7 @@
+Theme Name: wordpress theme by socket1016
+Theme URI: https://github.com/socket1016/wordpress-my-theme/
+Author: socket1016
+Author URI: https://github.com/socket1016
+Description: theme
+Version: 1.0
+Tags: 
