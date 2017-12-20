@@ -160,7 +160,7 @@ function mytheme_comment($comment, $args, $depth) {
 			<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 		</div>
 		<?php if ($comment->comment_approved == '0') : ?>
-			<em><?php _e('Your comment is awaiting moderation.') ?></em>
+			<em>あなたのコメントは現在承認待ちです</em>
 			<br />
 		<?php endif; ?>
 		
