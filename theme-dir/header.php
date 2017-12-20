@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+	<?php get_template_part("template-parts/google-analytics");?>
 	<?php get_template_part("template-parts/twitter-card");?>
 	<?php wp_head(); ?>
 </head>
