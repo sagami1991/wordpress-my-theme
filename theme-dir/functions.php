@@ -208,4 +208,10 @@ function disable_emojis() {
      remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 }
 add_action( 'init', 'disable_emojis' );
+
+function template_str($template, array $vars) {
+	return preg_replace_callback('/{(\w+)}/', function($m) use ($vars) {
+		return $vars[$m[1]];
+	}, $template);
+}
 ?>
