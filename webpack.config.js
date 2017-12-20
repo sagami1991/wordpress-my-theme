@@ -65,7 +65,7 @@ module.exports = [{
 		}),
 		new CopyWebpackPlugin([{
 			from: path.join(__dirname, "theme-dir"),
-			to: "/xampp/htdocs/wordpress/wp-content/themes/my-theme",
+			to: "/xampp/htdocs/wordpress/wp-content/themes/theme-dir",
 			ignore: ["tmp.css", "tmp.css.map"]
 		}])
 	]
