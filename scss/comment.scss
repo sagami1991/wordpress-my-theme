@@ -21,6 +21,7 @@
 		.comment-content {
 			font-size: 13px;
 			margin-left: 10px;
+			word-wrap: break-word;
 		}
 		.comment-reply-link {
 			font-size: 13px;
@@ -33,12 +34,16 @@
 			}
 		}
 	}
-	.comments-title, .comment-reply-title {
+	.comments-title,
+	.comment-reply-title {
 		font-size: 26px;
 		border-left: 6px solid $baseYellow;
 		padding-left: 12px;
-		margin: 20px 0 16px 0; 
+		margin: 20px 0 16px 0;
 		font-weight: 500;
 	}
-
+	// デフォルト
+	.bypostauthor {
+		display: block;
+	}
 }
