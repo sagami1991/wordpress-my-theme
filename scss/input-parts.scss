@@ -59,10 +59,10 @@ input[type=text],input[type=search], {
 		border-color: #d0d0d0;
 		border-width: 1px 1px 1px 0;
 		background-color: white;
-		padding: 6px 12px;
+		padding: 0 12px;
+		line-height: 40px;
 		color: rgb(39, 39, 39);
 		margin: 0;
-		display: inline-block;
 		&.current {
 			background-color: $baseYellow;
 		}

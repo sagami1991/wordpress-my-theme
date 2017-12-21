@@ -5,7 +5,8 @@ p {
 ul,
 ol {
 	padding-left: 1.5em;
-	margin: 1em 0;
+	margin-top: 4px;
+	margin-bottom: 10px;
 	ul,
 	ol {
 		margin: 0;
@@ -57,13 +58,13 @@ ins {
 		font-size: 26px;
 		border-left: 6px solid $baseYellow;
 		padding-left: 12px;
-		margin: 38px 0 20px 0;
+		margin: 38px 0 12px 0;
 		font-weight: 500;
 	}
 	h3 {
 		font-size: 20px;
 		font-weight: bold;
-		margin: 20px 0 16px 0;
+		margin: 20px 0 4px 0;
 	}
 	blockquote {
 		margin: 8px 0;
