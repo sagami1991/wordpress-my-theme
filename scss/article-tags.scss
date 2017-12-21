@@ -81,18 +81,24 @@ ins {
 		margin-bottom: 16px;
 		td,
 		th {
-			border-top: 1px solid #f1f1f1;
 			padding: 5px 5px;
-			&:last-child {
-				border-bottom: 1px solid #f1f1f1;
-			}
+		}
+		tr {
+			border-top: 1px solid #dadada;
+		}
+		tbody tr:last-child {
+			border-bottom: 1px solid #dadada;
+		}
+		thead tr {
+			border-bottom: 1px solid #b3b3b3;
+			border-top: 1px solid #b3b3b3;
+			
 		}
 	}
 	img {
 		max-width: 100%;
 		height: auto;
 	}
-
 }
 
 pre {
