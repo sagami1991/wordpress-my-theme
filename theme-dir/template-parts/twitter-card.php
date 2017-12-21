@@ -1,9 +1,11 @@
 <meta name="twitter:card" content="summary">
 <?php
+$site_name = get_bloginfo('name');
 $title;
 $description = "";
 $url;
 $image_url = "";
+$site_type;
 if (is_single()) {
 	$title = get_the_title();
 	while (have_posts()) {
@@ -12,13 +14,22 @@ if (is_single()) {
 	}
 	$url = esc_attr(get_the_permalink());
 	$image_url = get_the_post_thumbnail_url();
+	$site_type = "article";
 } else {
-	$title = get_bloginfo('name');
+	$title = $site_name;
 	$description = get_bloginfo('description');
 	$url = get_bloginfo('url');
 	$image_url = get_header_image();
+	$site_type = "website";
 }
-
+echo template_str('
+<meta property="og:site_name" content="{site_name}">', [
+	"site_name" => esc_attr($site_name)
+]);
+echo template_str('
+<meta property="og:type" content="{type}">', [
+	"type" => esc_attr($site_type)
+]);
 echo template_str('
 <meta property="og:title" content="{title}">
 <meta name="twitter:title" content="{title}">', [
