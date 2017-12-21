@@ -12,7 +12,7 @@ if (is_single()) {
 		"url" => esc_attr(get_the_permalink())
 	]);
 	if (has_post_thumbnail()) {
-		echo template_str('<meta name="og:image" content="{image}">', [
+		echo template_str('<meta property="og:image" content="{image}">', [
 			"image" => get_the_post_thumbnail_url()
 		]);
 	}
@@ -26,7 +26,7 @@ if (is_single()) {
 	echo template_str('<meta name="twitter:url" content="{url}">', [
 		"url" => esc_attr(get_bloginfo('url'))
 	]);
-	echo template_str('<meta name="og:image" content="{image}">', [
+	echo template_str('<meta property="og:image" content="{image}">', [
 		"image" => get_header_image()
 	]);
 }
